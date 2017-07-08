@@ -1,4 +1,6 @@
-(ns pretty-print-from-stackexchange.core)
+(ns pretty-print-from-stackexchange.core
+    (:require [clojure.java.io :as io] [clojure.edn :as edn] [clojure.string :as cljstr])
+    (:gen-class))
 
 (defn end-col
   "Returns one plus the maximum column occupied by the sparse string entry x."
@@ -113,5 +115,6 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+     (print (cljstr/join "\n" (line-seq (java.io.BufferedReader. *in*)))) 
+  )
 
