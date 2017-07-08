@@ -6,4 +6,5 @@
   :dependencies [[org.clojure/clojure "1.7.0"]]
   :main ^:skip-aot pretty-print-from-stackexchange.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all} :dev {:plugins [[com.jakemccrary/lein-test-refresh "0.18.1"]]}})
+
