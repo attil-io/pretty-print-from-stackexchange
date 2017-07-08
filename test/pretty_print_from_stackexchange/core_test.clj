@@ -4,4 +4,5 @@
 
 (deftest a-test
   (testing "end-col"
-    (is (= 0 (end-col [[0 -1] "4"])))))
+    (is (= 0 (end-col [[0 -1] "4"])))
+    (is (= -1 (end-col [[0 -1] ""])))))
