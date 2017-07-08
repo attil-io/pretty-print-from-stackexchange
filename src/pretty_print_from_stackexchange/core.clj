@@ -112,9 +112,10 @@
            (map #(when % (tree-string %))
                 [left right]))))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-     (print (cljstr/join "\n" (line-seq (java.io.BufferedReader. *in*)))) 
-  )
+(defn -main [& args]
+	(do
+	(println "Please, enter a graph")
+	(let [lines (cljstr/join "\n" (line-seq (java.io.BufferedReader. *in*)))
+		graph (edn/read (java.io.PushbackReader. (io/reader (.getBytes lines))))] 
+	(println (sparse-str (tree-string graph))))))
 
