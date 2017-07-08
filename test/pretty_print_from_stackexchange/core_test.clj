@@ -3,5 +3,5 @@
             [pretty-print-from-stackexchange.core :refer :all]))
 
 (deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+  (testing "end-col"
+    (is (= 0 (end-col [[0 -1] "4"])))))
