@@ -10,5 +10,8 @@
     (is (= -1 (end-col [[nil -1] ""]))))
   (testing "min-corner"
     (is (= [0 0] (min-corner {[0 0] "blah"})))
+    (is (= [0 0] (min-corner {[0 0] "hello" [10 10] "blah"})))
+    (is (= [0 0] (min-corner {[0 10] "hello" [10 0] "blah"})))
+    (is (= [0 0] (min-corner {[10 0] "hello" [0 10] "blah"})))
 ))
 
