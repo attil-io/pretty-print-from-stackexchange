@@ -9,6 +9,7 @@
     (is (= -1 (end-col [[0 -1] nil])))
     (is (= -1 (end-col [[nil -1] ""]))))
   (testing "min-corner"
+    ; (is (= [0 0] (min-corner {})))
     (is (= [0 0] (min-corner {[0 0] "blah"})))
     (is (= [0 0] (min-corner {[0 0] "hello" [10 10] "blah"})))
     (is (= [0 0] (min-corner {[0 10] "hello" [10 0] "blah"})))
@@ -28,7 +29,8 @@
     (is (= "\n" (fill [0 0] [[1 0] ""] [[2 0] ""])))
     (is (= "\n " (fill [0 -1] [[1 0] ""] [[2 0] ""])))
     (is (= "\n " (fill [-1 -1] [[1 0] ""] [[2 0] ""])))
-    (is (= "\n\n\n   " (fill [-1 -1] [[1 0] ""] [[4 2] ""])))
- 
+    (is (= "\n\n\n   " (fill [-1 -1] [[1 0] ""] [[4 2] ""]))))
+  (testing "sparse-str" 
+    ; (is (= "" (sparse-str {})))
 ))
 
