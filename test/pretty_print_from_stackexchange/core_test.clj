@@ -40,6 +40,15 @@
     (is (= "a\n\n b" (sparse-str {[0 0] "a" [2 1] "b"})))
     ; (is (= "aab" (sparse-str {[0 0] "aa" [0 1] "b"})))
     (is (= "aab" (sparse-str {[0 0] "aa" [0 2] "b"})))
-    (is (= "b a" (sparse-str {[0 2] "a" [0 0] "b"})))
+    (is (= "b a" (sparse-str {[0 2] "a" [0 0] "b"}))))
+  (testing "shift" 
+    (is (= {} (shift [0 0] {})))
+    (is (= {[0 0] "a"} (shift [0 0] {[0 0] "a"})))
+    (is (= {[0 1] "a"} (shift [0 1] {[0 0] "a"})))
+    (is (= {[1 0] "a"} (shift [1 0] {[0 0] "a"})))
+    (is (= {[0 -1] "a"} (shift [0 -1] {[0 0] "a"})))
+    (is (= {[-1 0] "a"} (shift [-1 0] {[0 0] "a"})))
+    (is (= {[3 4] "a" [4 6] "b"} (shift [3 4] {[0 0] "a" [1 2] "b"})))
+ 
 ))
 
