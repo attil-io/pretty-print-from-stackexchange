@@ -58,6 +58,14 @@
     (is (= 5 (vert-gap {[4 10] "a"} {[1 0] "a"})))
     (is (= 21 (vert-gap {[4 10] "a" [25 35] "b"} {[1 0] "a" [-5 -6] "b"})))
     (is (= 23 (vert-gap {[4 10] "a" [25 35] "bcdef"} {[1 0] "a" [-5 -6] "b"})))
-    ; (is (= -5 (vert-gap {[1 0] "a" [-5 -6] "b"} {[4 10] "a" [25 35] "bcdef"})))
+    ; (is (= -5 (vert-gap {[1 0] "a" [-5 -6] "b"} {[4 10] "a" [25 35] "bcdef"}))))
+    )
+  (testing "diagonal"
+    (is (= {} (diagonal :left [0 0] 0 \a)))
+    (is (= {[0 0] "a"} (diagonal :left [0 0] 1 \a)))
+    (is (= {[0 0] "a"} (diagonal :right [0 0] 1 \a)))
+    (is (= {[0 0] "a" [1 -1] "a"} (diagonal :left [0 0] 2 \a)))
+    (is (= {[0 0] "a" [1 1] "a"} (diagonal :right [0 0] 2 \a)))
+    ; (is (= {[0 0] "a" [-1 -1] "a"} (diagonal :left [0 0] -1 \a)))
 ))
 
