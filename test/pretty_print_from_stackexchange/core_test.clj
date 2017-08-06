@@ -91,7 +91,12 @@
     (is (= {[0 0] "a" [2 3] "b" [1 1] "\\"} (assemble {[0 0] "a"} nil {[0 1] "b"})))
     (is (= {[0 0] "a" [2 -3] "b" [1 -1] "/" [2 3] "c" [1 1] "\\"} (assemble {[0 0] "a"} {[0 -1] "b"} {[0 1] "c"})))
     (is (= {[0 0] "a" [2 -1] "b" [1 -1] "/" [2 4] "c" [1 1] "\\"} (assemble {[0 0] "a"} {[0 1] "b"} {[0 2] "c"})))
-    (is (= {[0 0] "a" [4 -3] "b" [1 -1] "/" [4 3] "c" [1 1] "\\"} (assemble {[0 0] "a"} {[2 -1] "b"} {[2 1] "c"})))
-  )
-)
+    (is (= {[0 0] "a" [4 -3] "b" [1 -1] "/" [4 3] "c" [1 1] "\\"} (assemble {[0 0] "a"} {[2 -1] "b"} {[2 1] "c"}))))
+  (testing "tree-string"
+    (is (= {[0 0] ""} (tree-string {:value "" :left nil :right nil})))
+    (is (= {[0 0] "a"} (tree-string {:value "a" :left nil :right nil})))
+    (is (= {[0 -1] "aa"} (tree-string {:value "aa" :left nil :right nil})))
+    (is (= {[0 -1] "aa" [2 -2] "b" [1 -1] "/"} (tree-string {:value "aa" :left {:value "b" :left nil :right nil} :right nil})))
+    (is (= {[0 -1] "aa" [2 2] "b" [1 1] "\\"} (tree-string {:value "aa" :left nil :right {:value "b" :left nil :right nil}})))
+    (is (= {[0 -1] "aa" [2 -2] "b" [1 -1] "/" [2 2] "c" [1 1] "\\"} (tree-string {:value "aa" :left {:value "b" :left nil :right nil} :right {:value "c" :left nil :right nil}})))))
 
