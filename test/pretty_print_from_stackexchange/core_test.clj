@@ -15,6 +15,7 @@
     (is (= [0 0] (min-corner {[0 10] "hello" [10 0] "blah"})))
     (is (= [0 0] (min-corner {[10 0] "hello" [0 10] "blah"}))))
   (testing "max-corner"
+    (is (= [0 0] (max-corner {})))              ; corner case 1b
     (is (= [1 0] (max-corner {[0 0] ""})))
     (is (= [1 1] (max-corner {[0 0] "a"})))
     (is (= [11 2] (max-corner {[0 0] "a" [10 -2] "abcd"}))))

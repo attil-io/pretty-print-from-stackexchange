@@ -19,7 +19,8 @@
   "Returns a vector of one plus the maximum non-empty row and column in
   sparse-string."
   [sparse-string]
-  (mapv #(apply max (map % sparse-string))
+  (mapv #(apply max (let [args (map % sparse-string)] (if (empty? args) [0 0] args)))
+;  (mapv #(apply max (map % sparse-string))
         [(comp inc first key) end-col]))
 
 (defn fill
