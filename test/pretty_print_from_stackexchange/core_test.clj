@@ -31,7 +31,7 @@
     (is (= "\n " (fill [-1 -1] [[1 0] ""] [[2 0] ""])))
     (is (= "\n\n\n   " (fill [-1 -1] [[1 0] ""] [[4 2] ""]))))
   (testing "sparse-str" 
-    ; (is (= "" (sparse-str {})))
+    (is (= "" (sparse-str {})))                        ; corner case 2
     (is (= "" (sparse-str {[0 0] ""})))
     (is (= "a" (sparse-str {[0 0] "a"})))
     (is (= "ab" (sparse-str {[0 0] "a" [0 1] "b"})))

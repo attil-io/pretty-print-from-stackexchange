@@ -12,6 +12,7 @@
   "Returns a vector of the minimum non-empty row and column in sparse-string."
   [sparse-string]
   (mapv #(apply min (let [args (map % (keys sparse-string))] (if (empty? args) [0 0] args)))
+;  (mapv #(apply min (map % (keys sparse-string)))
         [first second]))
 
 (defn max-corner
