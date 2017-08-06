@@ -51,8 +51,8 @@
     (is (= {[-1 0] "a"} (shift [-1 0] {[0 0] "a"})))
     (is (= {[3 4] "a" [4 6] "b"} (shift [3 4] {[0 0] "a" [1 2] "b"}))))
   (testing "vert-gap"
-    (is (= 1 (vert-gap {} {})))                        ; corener case 2
-    ; (is (= 0 (vert-gap {[0 0] "a"} {[0 0] "a"})))
+    (is (= 1 (vert-gap {} {})))                        ; corner case 2
+    (is (= 1 (vert-gap {[0 0] "a"} {[0 0] "a"})))      ; corner case 3
     (is (= 1 (vert-gap {[0 0] "a"} {[1 0] "a"})))
     (is (= 1 (vert-gap {[0 0] "a"} {[1 10] "a"})))
     ; (is (= 5 (vert-gap {[0 0] "a"} {[4 10] "a"})))
