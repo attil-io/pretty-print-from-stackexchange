@@ -71,12 +71,14 @@
 (defn diagonal
   "Returns a diagonal sparse string with the top end located at corner."
   [direction corner length character]
-  (let [[first-row first-col] corner]
+  (let [[first-row first-col] corner
+        _length (Math/abs length)
+        op (if (< length 0) - +)]
     (into {} (map (fn [n]
-                    [[(+ first-row n)
+                    [[(op first-row n)
                       ((directions direction) first-col n)]
                      (str character)])
-                  (range length)))))
+                  (range _length)))))
 
 (defn leg
   "Returns a sparse string from shifting tree-string according to direction,

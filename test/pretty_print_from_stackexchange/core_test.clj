@@ -65,8 +65,7 @@
     (is (= {[0 0] "a"} (diagonal :right [0 0] 1 \a)))
     (is (= {[0 0] "a" [1 -1] "a"} (diagonal :left [0 0] 2 \a)))
     (is (= {[0 0] "a" [1 1] "a"} (diagonal :right [0 0] 2 \a)))
-    ;(is (= {[0 0] "a" [-1 -1] "a"} (diagonal :left [0 0] -1 \a)))
-  )
+    (is (= {[0 0] "a" [-1 -1] "a"} (diagonal :left [0 0] -2 \a))))                ; corner case 5?
   (testing "leg"
     (is (= {} (leg :left {} 0 0)))
     (is (= {[0 -1] "/"} (leg :left {} 1 0)))
