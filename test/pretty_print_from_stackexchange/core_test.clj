@@ -15,7 +15,7 @@
     (is (= [0 0] (min-corner {[0 10] "hello" [10 0] "blah"})))
     (is (= [0 0] (min-corner {[10 0] "hello" [0 10] "blah"}))))
   (testing "max-corner"
-    (is (= [0 0] (max-corner {})))              ; corner case 1b
+    (is (= [0 0] (max-corner {})))              ; corner case 2
     (is (= [1 0] (max-corner {[0 0] ""})))
     (is (= [1 1] (max-corner {[0 0] "a"})))
     (is (= [11 2] (max-corner {[0 0] "a" [10 -2] "abcd"}))))
@@ -32,7 +32,7 @@
     (is (= "\n " (fill [-1 -1] [[1 0] ""] [[2 0] ""])))
     (is (= "\n\n\n   " (fill [-1 -1] [[1 0] ""] [[4 2] ""]))))
   (testing "sparse-str" 
-    (is (= "" (sparse-str {})))                        ; corner case 2
+    (is (= "" (sparse-str {})))                        ; corner case 1
     (is (= "" (sparse-str {[0 0] ""})))
     (is (= "a" (sparse-str {[0 0] "a"})))
     (is (= "ab" (sparse-str {[0 0] "a" [0 1] "b"})))
@@ -51,7 +51,7 @@
     (is (= {[-1 0] "a"} (shift [-1 0] {[0 0] "a"})))
     (is (= {[3 4] "a" [4 6] "b"} (shift [3 4] {[0 0] "a" [1 2] "b"}))))
   (testing "vert-gap"
-    ; (is (= 0 (vert-gap {} {})))
+    (is (= 1 (vert-gap {} {})))                        ; corener case 2
     ; (is (= 0 (vert-gap {[0 0] "a"} {[0 0] "a"})))
     (is (= 1 (vert-gap {[0 0] "a"} {[1 0] "a"})))
     (is (= 1 (vert-gap {[0 0] "a"} {[1 10] "a"})))
