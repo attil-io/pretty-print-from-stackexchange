@@ -61,9 +61,9 @@
   right tree strings."
   [left right]
   (if (and left right)
-    (max 1 (quot (- (second (max-corner left))
+    (max 1 (quot (Math/abs (- (second (max-corner left))
                     (second (min-corner right)))
-                 2))
+                 ) 2))
     1))
 
 (def directions {:left - :right +})

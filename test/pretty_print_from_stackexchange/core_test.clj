@@ -54,8 +54,7 @@
     (is (= 1 (vert-gap {} {})))                        ; corner case 2
     (is (= 1 (vert-gap {[0 0] "a"} {[0 0] "a"})))      ; corner case 3
     (is (= 1 (vert-gap {[0 0] "a"} {[1 0] "a"})))
-    (is (= 1 (vert-gap {[0 0] "a"} {[1 10] "a"})))
-    ; (is (= 5 (vert-gap {[0 0] "a"} {[4 10] "a"})))
+    (is (= 4 (vert-gap {[0 0] "a"} {[4 10] "a"})))     ; corner case 4
     (is (= 5 (vert-gap {[4 10] "a"} {[1 0] "a"})))
     (is (= 21 (vert-gap {[4 10] "a" [25 35] "b"} {[1 0] "a" [-5 -6] "b"})))
     (is (= 23 (vert-gap {[4 10] "a" [25 35] "bcdef"} {[1 0] "a" [-5 -6] "b"})))
